@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{%block style%}
+{%endblock%}
+{%block content%}
+<div class="container">
+    <form action="{% url 'module1:edit' movie.id%}" enctype="multipart/form-data" method="POST">
+        {% csrf_token %}
+        <div class="row gx-5 my-2">
+            {{data.name.error}}
+            <label for="name" class="col-sm-2  col-form-label">{{data.name.label}}</label>
+            <div class="col-sm-8">
+                {{data.name}}
+                <span class="text-white">{{data.name.errors}}</span>
+            </div>
+        </div>
+        <div class="row gx-5 my-2">
+            <label for="name" class="col-sm-2  col-form-label">{{data.title.label}}</label>
+            <div class="col-sm-8">
+                {{data.title}}
+                <span class="text-white">{{data.title.errors}}</span>
+            </div>
+        </div>
+        <div class="row gx-5 my-2">
+            <label for="name" class="col-sm-2  col-form-label">{{data.year.label}}</label>
+            <div class="col-sm-8">
+                {{data.year}}
+                <span class="text-white">{{data.year.errors}}</span>
+            </div>
+        </div>
+        <div class="row gx-5 my-2">
+            <label for="name" class="col-sm-2  col-form-label">Poster</label>
+            <div class="col-sm-8">
+                {{data.img}}
+                <span class="text-white">{{data.img.errors}}</span>
+            </div>
+        </div>
+        <div class="d-flex my-5 justify-content-center">
+            <input type="submit" value="Change" class="btn btn-primary">
+        </div> 
+    </form>
+</div>
+{%endblock%}

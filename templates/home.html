@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block style %}
+        table{
+            margin-top: 100px;
+        }
+{% endblock %}
+{% block content %}
+    <div class="container table-responsive">
+        <table class="table  table-light table-hover">
+            <caption class="px-4 bg-dark text-white">Movie List</caption>
+            <thead class="table-dark text-center">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="">Title</th>
+                    <th scope="col">Year</th>
+                    <th scope="col">Poster</th>
+                </tr>
+            </thead>
+            <tbody class="text-center">
+                {% for i in data %}
+                <tr>
+                    <th scope="row">{{i.id}}</th>
+                    <td><a href="{% url 'module1:search' i.id%}" class="nav-link text-primary">{{i.name}}</a></td>
+                    <td> {{i.title}} </td>
+                    <td> {{i.year}} </td>
+                    <td><img src="{{i.img.url}}" class="img-fluid"  width="100px"></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+ {% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block style %}
+.content{
+margin-top: 100px;
+}
+
+{% endblock %}
+</head>
+{% block content %}
+<header class="bg-light py-3">
+    <span class="display-4">#{{data.name}}</span>
+</header>
+<div class="container ">
+    <div class="content bg-light row">
+        <div class="col-sm-6">
+            <div class="row  py-5 border">
+                <div class="col-sm">Movie Name:</div>
+                <div class="col-sm fw-bold">{{data.name}}</div>
+            </div>
+            <div class="row py-5  border">
+                <div class="col-sm">Movie Description:</div>
+                <div class="col-sm  fw-bold">{{data.title}}</div>
+            </div>
+            <div class="row py-5  border ">
+                <div class="col-sm">Release:</div>
+                <div class="col-sm fw-bold">{{data.year}}</div>
+            </div>
+            <div class="row py-5  border ">
+                <div class="col-sm">Action:</div>
+                <div class="col-sm fw-bold">
+                    {% block delete %}
+                    <a href="{% url 'module1:edit' data.id%}"><button class="btn btn-warning">EDIT</button></a>
+                   <a href="{% url 'module1:delete' data.id%}" class="mx-3"><button class="btn btn-danger">DELETE</button></a>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 text-center py-5 bg-danger">
+            <img src="{{data.img.url}}" class="img-fluid img-thumbnail" style="height: 450px;" alt="">
+        </div>
+    </div>
+
+</div>
+{% endblock %}

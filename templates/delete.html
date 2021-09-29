@@ -1,0 +1,25 @@
+{% extends 'details.html' %}
+{% block style %}
+.content{
+padding:100px;
+margin-top:100px;
+}
+{% endblock%}
+{% block content%}
+<div class="container">
+    <div class="content d-flex justify-content-center">
+        <div class="text-center bg-light row">
+            <span>Are you sure you wants to delete this entry</span>
+            <div class="col-sm-6 my-3">
+                <form method="POST" class="form">
+                    {% csrf_token%}
+                    <input type="submit" class="btn btn-danger" value="Yes">
+                </form>
+            </div>
+            <div class=" col-sm-6 my-3 ">
+                <a href="/"><button class="btn btn-primary">No</button></a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

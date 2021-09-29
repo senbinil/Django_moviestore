@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="{% static 'bs/bootstrap.min.css'%}">
+    <script src="{% static 'bs/bootstrap.min.js'%}"></script>
+    <style>
+        {% block style %}
+        {% endblock %}
+    </style>
+</head>
+
+<body class="bg-info">
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <img src="{%static 'img/m.png' %}" class="d-inline-block align-text-top" width="50px" alt="">
+            <a href="/" class="nav-link text-white display-4">Movie Store</a>
+            <button class="navbar-toggler" type="button" data-bs-target="#navcontent" data-bs-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navcontent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link fs-4 active">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/register" class="nav-link fs-4 active">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    {%for i in messages%}
+    {{i}}
+    {%endfor%}
+    {% block content %}
+    {% endblock %}
+    <footer class="footer text-center py-2 fixed-bottom bg-transparent">
+        Image may subjected to &copy;  
+    </footer>
+    <script src="{% static 'bs/jquery.min.js' %}"></script>
+</body>
+</html>
